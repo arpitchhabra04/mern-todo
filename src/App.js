@@ -3,15 +3,16 @@ import TodoList from "./components/todo-list";
 import EditTodo from "./components/edit-todo";
 import CreateTodo from "./components/create-todo";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Header from "./components/header";
 function App() {
   return (
     <Router>
+      <Header />
       <div className="container">
-        <h2>hello Todo app</h2>
+        <Route path="/" exact component={TodoList} />
+        <Route path="/edit/:id" component={EditTodo} />
+        <Route path="/create" component={CreateTodo} />
       </div>
-      <Route path="/" exact component={TodoList} />
-      <Route path="/edit/:id" component={EditTodo} />
-      <Route path="/create" component={CreateTodo} />
     </Router>
   );
 }
